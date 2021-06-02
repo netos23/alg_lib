@@ -1,7 +1,14 @@
-.idea
-/.idea/*
-target
-/out
-/out/*
-/target
-*.iml;
+#idea files
+**/.idea
+**/.idea/*
+*.iml
+
+#java tmp
+**/target
+**/out
+**/out/*
+**/target/*
+
+#python tmp
+**/__pycache__
+**/__pycache__/*
