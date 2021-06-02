@@ -1,5 +1,5 @@
-# merge_sort
-Simle implimentation of merge sort
+### merge_sort
+Реализация не in place merge_sort
 ---
 1) Включает библиотеку с сортировками
 2) автоматические тесты (см. папку test)
