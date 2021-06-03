@@ -12,3 +12,7 @@
 #python tmp
 **/__pycache__
 **/__pycache__/*
+
+#c tmp
+**/cmake-build-debug/*
+**/cmake-build-debug/

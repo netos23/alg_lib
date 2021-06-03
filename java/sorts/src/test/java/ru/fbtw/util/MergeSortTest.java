@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-class SortLibTest {
+class MergeSortTest {
 
 	public static final int MIN_LEN = 1;
 	public static final int MAX_LEN = 50;
