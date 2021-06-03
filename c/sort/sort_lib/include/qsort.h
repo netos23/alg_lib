@@ -16,7 +16,7 @@ typedef enum Pivot {
 pivot_t qsortPivot;
 
 
-void qsortl(void *array, size_t sizeOfArray, size_t sizeOfElements, int (*cmpFunc)(const void *, const void *));
+void qsort_l(void *array, size_t sizeOfArray, size_t sizeOfElements, int (*cmpFunc)(const void *, const void *));
 
 size_t _prtlom(char *array, size_t sizeOfArray, size_t sizeOfElements, int (*cmpFunc)(const void *, const void *));
 
