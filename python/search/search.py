@@ -16,12 +16,12 @@ def binarySearch(arr, el):
 		cmp += 1
 		m = (l+r) // 2
 		if arr[m] > el:
-			r = m + 1
+			r = m
 		elif arr[m] < el:
-			l = m + 1
+			l = m
 		else:
-			return m
-	return -1
+			return m, cmp
+	return -1, cmp
 
 
 def interpolationSearch(arr, el):
@@ -30,26 +30,11 @@ def interpolationSearch(arr, el):
 	while l < r:
 		cmp += 1
 		m = l + (r - l) * (el - arr[l]) // (arr[r] - arr[l])
-		if arr[m] == el:
-			return m
-		elif arr[m] > el:
+		if arr[m] > el:
 			l = m
 		elif arr[m] < el:
-			r = m 
-	return -1
+			r = m
+		else:
+			return m, cmp 
+	return -1, cmp
 
-if __name__ == '__main__':
-	array = IO.readArray('input.txt')
-	avgL , avgB, avgI = 0, 0, 0
-	for i in range(len(array)):
-		cmp, index = indexOf(array, array[i])
-		avgL += cmp
-		
-		cmp, index = binarySearch(array, array[i])
-		avgB += cmp
-		
-		cmp, index = interpolationSearch(array, array[i])
-		avgI += cmp
-	print(f'linear avg cmp: {avgL / len(array)}\n')
-	print(f'binary avg cmp: {avgB / len(array)}\n')
-	print(f'interpolation avg cmp {avgI / len(arr)}')
