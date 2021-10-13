@@ -1,5 +1,6 @@
-import io_utils as IO
+from common import io_utils as IO
 import search as arrays
+
 
 def test(search, array, name):
 	avg = 0
@@ -12,8 +13,8 @@ def test(search, array, name):
 
 
 if __name__ == '__main__':
-	array = IO.readArray('input.txt')
- 
-	test(arrays.indexOf, array, 'Linaer')
-	test(arrays.binarySearch, array, 'Binary')
-	test(arrays.interpolationSearch, array, 'Interpolar')
+	inp_arr = IO.read_array('assets/input.txt')
+
+	test(arrays.index_of, inp_arr, 'Linaer')
+	test(arrays.binary_search, inp_arr, 'Binary')
+	test(arrays.interpolation_search, inp_arr, 'Interpolar')

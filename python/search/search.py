@@ -1,20 +1,18 @@
-import io_utils as IO
-
-def indexOf(arr, el):
+def index_of(arr, el):
 	cmp = 0
 	for i in range(len(arr)):
 		cmp += 1
 		if arr[i] == el:
 			return i, cmp
-	return -1, cmp	
+	return -1, cmp
 
 
-def binarySearch(arr, el):
+def binary_search(arr, el):
 	cmp = 0
 	l, r = 0, len(arr)
 	while l < r:
 		cmp += 1
-		m = (l+r) // 2
+		m = (l + r) // 2
 		if arr[m] > el:
 			r = m
 		elif arr[m] < el:
@@ -24,7 +22,7 @@ def binarySearch(arr, el):
 	return -1, cmp
 
 
-def interpolationSearch(arr, el):
+def interpolation_search(arr, el):
 	cmp = 0
 	l, r = 0, len(arr) - 1
 	while l < r:
@@ -35,6 +33,5 @@ def interpolationSearch(arr, el):
 		elif arr[m] < el:
 			r = m
 		else:
-			return m, cmp 
+			return m, cmp
 	return -1, cmp
-
