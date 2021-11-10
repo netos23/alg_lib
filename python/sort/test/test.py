@@ -14,7 +14,7 @@ class MyTestCase(unittest.TestCase):
 		expected_swaps = out.read_int()
 
 		actual_array = inp.read_array()
-		actual_swaps = insertion_sort(actual_array, cmp_int)
+		actual_swaps = insertion_sort_swaps(actual_array, cmp_int)
 
 		out.close()
 		inp.close()
