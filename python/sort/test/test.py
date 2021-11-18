@@ -56,7 +56,7 @@ class MyTestCase(unittest.TestCase):
 	def test_shell_sort_swaps(self):
 		out = scanner('../assets/shell.output')
 		inp = scanner('../assets/shell.input')
-		f = open('../assets/shell1=2.wrk', 'w')
+		f = open('../assets/shell12.wrk', 'w')
 
 		expected_array = out.read_array()
 
