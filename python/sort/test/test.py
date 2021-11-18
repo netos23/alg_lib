@@ -1,3 +1,4 @@
+import random
 import unittest
 from common.io_utils import scanner
 from lib.classic_sorts import *
@@ -39,16 +40,10 @@ class MyTestCase(unittest.TestCase):
 		print(f'Массив: {actual_array}')
 
 	def test_shell_sort(self):
-		out = scanner('../assets/insertion.output')
-		inp = scanner('../assets/insertion.input')
-
-		expected_array = out.read_array()
-
-		actual_array = inp.read_array()
+		actual_array = [random.randint(0, 100) for _ in range(0, 100)]
+		expected_array = actual_array.copy()
+		expected_array.sort()
 		shell_sort(actual_array, cmp_int)
-
-		out.close()
-		inp.close()
 
 		self.assertEqual(expected_array, actual_array)
 		print(f'Массив: {actual_array}')
