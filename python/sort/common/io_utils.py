@@ -1,4 +1,4 @@
-class Scanner(object):
+class scanner(object):
 	def __init__(self, filename):
 		self.f = open(filename, 'r')
 
