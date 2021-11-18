@@ -56,9 +56,9 @@ class MyTestCase(unittest.TestCase):
 	def test_shell_sort_swaps(self):
 		out = scanner('../assets/shell.output')
 		inp = scanner('../assets/shell.input')
+		f = open('../assets/shell1.wrk', 'w')
 
 		expected_array = out.read_array()
-		swaps = out.read_array()
 
 		actual_array2 = inp.read_array()
 		actual_array3 = actual_array2.copy()
@@ -71,7 +71,8 @@ class MyTestCase(unittest.TestCase):
 		self.assertEqual(expected_array, actual_array2)
 		self.assertEqual(expected_array, actual_array3)
 
-		print(f'Массив: {actual_array2}\n Обменов при 2x: {swap2}\n Обменов при 3х: {swap3}')
+		print(f'Массив: {actual_array2}\n Обменов при 2x: {swap2}\n Обменов при 3х: {swap3}', file=f)
+		f.close()
 
 	def test_qsort(self):
 		out = scanner('../assets/insertion.output')
