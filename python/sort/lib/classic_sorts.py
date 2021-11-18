@@ -1,3 +1,6 @@
+import math
+
+
 def insertion_sort_swaps(array, cmp):
 	return _insertion_sort_swaps(array, cmp, 1)
 
@@ -43,10 +46,12 @@ def shell_sort_swaps3(array, cmp):
 
 def _shell_sort_swaps(array, cmp, sequence):
 	swaps = 0
-	step = sequence(len(array))
-	while step > 0:
-		swaps += _insertion_sort_swaps(array, cmp, step)
-		step = sequence(step)
+	# step = math.ceil(math.log(len(array))) - 1
+	step = math.ceil(math.log(len(array) * 2 + 1, 3)) - 1
+	while step >= 0:
+		increment = int(1 - (pow(3, step)) / -2) - 1
+		swaps += _insertion_sort_swaps(array, cmp, increment)
+		step -= 1
 	return swaps
 
 
