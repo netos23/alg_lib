@@ -37,13 +37,12 @@ def shell_sort(array, cmp):
 
 
 def shell_sort_swaps2(array, cmp):
-	return _shell_sort_swaps(array, cmp, lambda l: math.ceil(math.log2(l)),
-							 lambda step: (pow(2, step)) - 1)
+	return _shell_sort_swaps(array, cmp, lambda l: math.ceil(math.log2(l)), lambda step: 2 ** step - 1)
 
 
 def shell_sort_swaps3(array, cmp):
 	return _shell_sort_swaps(array, cmp, lambda l: math.ceil(math.log(l * 2 + 1, 3)) - 1,
-							 lambda step: int(1 - (pow(3, step)) / -2) - 1)
+							 lambda step: int(1 - (3 ** step) / -2) - 1)
 
 
 def _shell_sort_swaps(array, cmp, init, sequence):
