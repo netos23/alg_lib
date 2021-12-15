@@ -9,6 +9,7 @@ class MyTestCase(unittest.TestCase):
 	def test_insertion_sort_swaps(self):
 		out = scanner('../assets/insertion.output')
 		inp = scanner('../assets/insertion.input')
+		file = open('../assets/insertion.result', 'w')
 
 		expected_array = out.read_array()
 		expected_swaps = out.read_int()
@@ -21,7 +22,8 @@ class MyTestCase(unittest.TestCase):
 
 		self.assertEqual(expected_swaps, actual_swaps)
 		self.assertEqual(expected_array, actual_array)
-		print(f'Массив: {actual_array}\nОбменов: {actual_swaps}')
+		print(f'Массив: {actual_array}\nОбменов: {actual_swaps}', file=file)
+		file.close()
 
 	def test_insertion_sort(self):
 		out = scanner('../assets/insertion.output')
@@ -62,8 +64,8 @@ class MyTestCase(unittest.TestCase):
 
 		actual_array2 = inp.read_array()
 		actual_array3 = actual_array2.copy()
-		swap2 = shell_sort_swaps2(actual_array2, cmp_int)
-		swap3 = shell_sort_swaps3(actual_array3, cmp_int)
+		swap2 = shell_sort_alt(actual_array2, True)
+		swap3 = shell_sort_alt(actual_array3, False)
 
 		out.close()
 		inp.close()

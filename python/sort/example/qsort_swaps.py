@@ -36,6 +36,7 @@ def get_permutations(array):
 
 if __name__ == '__main__':
 	inp = scanner('../assets/qsort.ex')
+	file = open('../assets/qsort.out','w')
 	n = inp.read_int()
 	src = gen_array(n)
 
@@ -44,6 +45,6 @@ if __name__ == '__main__':
 	res.sort(key=lambda a: a[1])
 
 	for arr, swaps in res:
-		print(f'Обменов: {swaps}\nМассив: {arr}\n')
-
+		print(f'Обменов: {swaps}\nМассив: {arr}\n', file=file)
+	file.close()
 	inp.close()

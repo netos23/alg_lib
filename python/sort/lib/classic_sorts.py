@@ -2,21 +2,24 @@ import math
 
 
 def insertion_sort_swaps(array, cmp):
-	return _insertion_sort_swaps(array, cmp, 1)
+	return _insertion_sort(array, cmp)
 
 
 def insertion_sort(array, cmp):
-	_insertion_sort(array, cmp, 1)
+	_insertion_sort(array, cmp)
 
 
-def _insertion_sort(array, cmp, inc):
-	for i in range(inc, len(array), 1):
-		j = i
-		delta = j - inc
-		while delta >= 0 and cmp(array[delta], array[j]) > 0:
-			array[delta], array[j] = array[j], array[delta]
-			j = delta
-			delta = j - inc
+def _insertion_sort(array, cmp):
+	swaps = 0
+	for i in range(1, len(array)):
+		j = i - 1
+		key = array[i]
+		while j >= 0 and cmp(array[j], key) > 0:
+			array[j + 1] = array[j]
+			swaps += 1
+			j -= 1
+		array[j + 1] = key
+	return swaps
 
 
 def _insertion_sort_swaps(array, cmp, inc):
@@ -29,11 +32,49 @@ def _insertion_sort_swaps(array, cmp, inc):
 			array[delta], array[j] = array[j], array[delta]
 			j = delta
 			delta = j - inc
+		else:
+			if j >= delta:
+				swaps += 1
 	return swaps
 
 
+def insertion_sort_alt(array, start, increment):
+	comp = 0
+	for i in range(start + increment, len(array), increment):
+		elem = array[i]
+		j = i - increment
+		while j >= start and elem < array[j]:
+			comp += 1
+			array[j + increment] = array[j]
+			j -= increment
+		else:
+			if j >= start:
+				comp += 1
+		array[j + increment] = elem
+	return comp
+
+
+def shell_sort_alt(arr, mode):
+	comp = 0
+	if mode:
+		passes = math.floor(math.log2(len(arr)))
+		increment = 2 ** passes - 1
+	else:
+		passes = math.floor(math.log(2 * len(arr) + 1, 3)) - 1
+		increment = (3 ** passes - 1) // 2
+	while passes >= 0:
+		for start in range(0, increment):
+			comp += insertion_sort_alt(arr, start, increment)
+		if mode:
+			increment = (increment - 1) // 2
+		else:
+			increment = (increment - 1) // 3
+		passes -= 1
+	return comp
+
+
 def shell_sort(array, cmp):
-	_insertion_sort(array, cmp, 1)
+	_insertion_sort_swaps(array, cmp, 1)
 
 
 def shell_sort_swaps2(array, cmp):
