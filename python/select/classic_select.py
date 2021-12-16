@@ -1,6 +1,6 @@
-from math import ceil, floor
+from math import ceil
 
-INSERTATION_SORT_THRESHOLD: int = 7
+INSERTATION_SORT_THRESHOLD = 7
 
 
 def rselect(array, k, cmp):
